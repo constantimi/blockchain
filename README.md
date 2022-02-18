@@ -2,7 +2,7 @@
 
 That's a simple blockchain and cryptocurrency wallet implemented in Node.js and TypeScript.
 
-# Usage
+### Usage
 
 ```
 git clone <this-repo>
