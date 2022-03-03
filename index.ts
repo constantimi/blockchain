@@ -63,7 +63,7 @@ class Chain {
 
         if(attempt.substr(0,4) === '0000'){
             console.log(`Solved: ${solution}`);
-            return solution;
+            return nonce + solution;
         }
 
         solution += 1;
@@ -81,7 +81,7 @@ class Chain {
             // Add the new Block
             const newBlock = new Block(this.lastBlock.hash, transaction);
 
-            this.mine(newBlock.nonce);
+            newBlock.nonce = this.mine(newBlock.nonce);
             this.chain.push(newBlock);
         }
     }
