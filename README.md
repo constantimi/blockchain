@@ -9,7 +9,7 @@ Clone the project:
 git clone <this-repo>
 
 npm install
-npm run blockchain
+npm run start
 ```
 For the developement, compine the code with:
 
