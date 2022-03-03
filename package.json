@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsc -w",
-    "blockchain": "tsc && node ."
+    "build" : "tsc",
+    "start": "tsc && node .",
+    "test": "echo \"Error: no tests specified\" && exit 1"
   },
   "keywords": [],
   "author": "Konstantin Mihaylov",
