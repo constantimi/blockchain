@@ -7,7 +7,7 @@
     "dev": "tsc -w",
     "build" : "tsc",
     "start": "tsc && node .",
-    "test": "echo \"Error: no tests specified\" && exit 1"
+    "test": ""
   },
   "keywords": [],
   "author": "Konstantin Mihaylov",
