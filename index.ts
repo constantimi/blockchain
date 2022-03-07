@@ -41,6 +41,7 @@ class Chain {
 
     constructor() {
         // Create th Genesis Block
+        console.log(`Blockchain created the Genesis Block!`);
         this.chain = [new Block(null as any, new Transaction(100, 'genesis', 'bitcoin'))]
     }
 
@@ -56,17 +57,17 @@ class Chain {
         // Brute force going digit by digit to find the requested value
         while(true) {
 
-        const hash = crypto.createHash('MD5'); // Similar such as SHA256, faster to compute
-        hash.update((nonce + solution).toString()).end();
+            const hash = crypto.createHash('MD5'); // Similar such as SHA256, faster to compute
+            hash.update((nonce + solution).toString()).end();
 
-        const attempt = hash.digest('hex');
+            const attempt = hash.digest('hex');
 
-        if(attempt.substr(0,4) === '0000'){
-            console.log(`Solved: ${solution}`);
-            return nonce + solution;
-        }
+            if(attempt.substr(0,4) === '0000'){
+                console.log(`Solved: ${solution}`);
+                return nonce + solution;
+            }
 
-        solution += 1;
+            solution += 1;
         }
     }
 
@@ -83,14 +84,19 @@ class Chain {
 
             newBlock.nonce = this.mine(newBlock.nonce);
             this.chain.push(newBlock);
+
+            return true;
         }
+
+        return false;
     }
 }
 
 // Legitamate the transaction
 class Wallet {
+    private amountMoney: number; // The amount of money in the Wallet
+    private privateKey: string; // The privateKey is for spending money
     public publicKey: string; // The publicKey is for receiving money
-    public privateKey: string; // The privateKey is for spending money
 
     constructor() {
         // The `generateKeyPairSync` method accepts two arguments 'type' key and 'options'
@@ -102,11 +108,29 @@ class Wallet {
             privateKeyEncoding: { type: 'pkcs8', format: 'pem' },
         });
 
+        this.amountMoney = 0;
         this.privateKey = keypair.privateKey;
         this.publicKey = keypair.publicKey;
     }
 
-    sendMoney(amount: number, payeePublicKey: string) {
+    public Init() {
+        this.addMoney(this, 100);
+        console.log(`Private key: ${this.privateKey}`);
+    }
+
+    sendMoney(amount: number, payee: Wallet, payeePublicKey: string) {
+        
+        // Validate the Wallet amount
+        if(amount <= 0) {
+            console.log("RangeError: The amount money which you are sending is't enough to proceed...");
+            return null;
+        }
+
+        if(this.amountMoney < amount) {
+            console.log("RangeError: The amount money in the wallet is't enough to proceed...");
+            return null;
+        }
+
         const transaction = new Transaction(amount, this.publicKey, payeePublicKey);
 
         const sign = crypto.createSign('SHA256');
@@ -116,21 +140,32 @@ class Wallet {
         const signature = sign.sign(this.privateKey);
 
         // Add the block to the BlockChain
-        Chain.instance.addBlock(transaction, this.publicKey, signature);
+        var result = Chain.instance.addBlock(transaction, this.publicKey, signature);
+
+        // Add money after validation of the sifnature
+        if(result == true){
+            this.addMoney(payee, amount);
+        }
     }
-    
+
+    private addMoney(wallet: Wallet, amount: number) {
+        // Add Money to the account
+        wallet.amountMoney += amount;
+        console.log(`${amount} added to the wallet`);
+    }   
 }
 
-// Example of usage
-console.log(`Each wallet has a block in the chain.` +
-    ` \nThe first one is the Genesis Block!`);
 
-const satoshi = new Wallet();
+// Example of usage
+var satoshi = new Wallet();
+satoshi.Init();
+
 const user1 = new Wallet();
 const user2 = new Wallet();
 
-satoshi.sendMoney(100, user1.publicKey);
-user1.sendMoney(20, user2.publicKey);
-user2.sendMoney(5, user1.publicKey);
+satoshi.sendMoney(80, user1, user1.publicKey);
+user1.sendMoney(20, user2, user2.publicKey);
+user2.sendMoney(15, user1, user1.publicKey);
 
+console.log(`\n`);
 console.log(Chain.instance);
