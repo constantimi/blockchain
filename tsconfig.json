@@ -3,7 +3,7 @@
         "lib": ["es2021"],
         "watch": true,
         "module": "commonjs",
-        "target": "esnext",
+        "target": "es2019",
         "types": ["node"],
 
         "strict": true,
