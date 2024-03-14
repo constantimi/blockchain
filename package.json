@@ -2,7 +2,7 @@
   "name": "blockchain",
   "version": "1.0.0",
   "description": "That's a simple blockchain and cryptocurrency wallet implemented in Node.js and TypeScript.",
-  "main": "blockchain.js",
+  "main": "blockchain-pow.js",
   "scripts": {
     "dev": "tsc -w",
     "build": "tsc",

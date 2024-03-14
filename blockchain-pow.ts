@@ -62,7 +62,7 @@ class Chain {
 
             const attempt = hash.digest('hex');
 
-            if(attempt.substr(0,4) === '0000'){
+            if(attempt.substring(0,4) === '0000'){
                 console.log(`Solved: ${solution}`);
                 return nonce + solution;
             }
