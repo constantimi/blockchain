@@ -34,8 +34,15 @@ bower_components
 .DS_Store
 Thumbs.db
 
+# TypeScript build files
+.dist/
+.out/
+
 # Ignore built ts files
 dist/**/*
+
+# Optional: For globally installed dependencies (not often necessary)
+.npm/
 
 # ignore yarn.lock
 yarn.lock

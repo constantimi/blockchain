@@ -1,29 +1,29 @@
 {
-  "name": "blockchain",
-  "version": "1.0.0",
-  "description": "That's a simple blockchain and cryptocurrency wallet implemented in Node.js and TypeScript.",
-  "main": "blockchain-pow.js",
-  "scripts": {
-    "dev": "tsc -w",
-    "build": "tsc",
-    "start": "tsc && node .",
-    "test": ""
-  },
-  "keywords": [],
-  "author": "Konstantin Mihaylov",
-  "license": "ISC",
-  "dependencies": {
-    "typescript": "^5.4.2"
-  },
-  "devDependencies": {
-    "@types/node": "^20.11.27"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/constantimi/Blockchain.git"
-  },
-  "bugs": {
-    "url": "https://github.com/constantimi/Blockchain/issues"
-  },
-  "homepage": "https://github.com/constantimi/Blockchain#readme"
+    "name": "blockchain",
+    "version": "1.0.0",
+    "description": "That's a simple blockchain and cryptocurrency wallet implemented in Node.js and TypeScript.",
+    "main": "blockchain-pow.js",
+    "scripts": {
+        "dev": "tsc -w",
+        "build": "tsc",
+        "start": "tsc && node .",
+        "test": ""
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "typescript": "^5.4.2"
+    },
+    "devDependencies": {
+        "@types/node": "^20.11.27"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/constantimi/blockchain.git"
+    },
+    "bugs": {
+        "url": "https://github.com/constantimi/blockchain/issues"
+    },
+    "homepage": "https://github.com/constantimi/blockchain#readme"
 }
