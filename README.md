@@ -67,16 +67,6 @@ npm test tests/blockchain-pos.test.ts
 npm test tests/blockchain-liquidity-pool.test.ts
 ```
 
-### Code Quality
-
-```bash
-# Run linter
-npm run lint
-
-# Format code
-npm run format
-```
-
 ### Examples
 
 ```bash
@@ -88,30 +78,6 @@ npm run example:pos
 
 # Run Liquidity Pool example
 npm run example:liquidity
-```
-
-## Project Structure
-
-```
-├── src/
-│   ├── blockchain-pow.ts         # Proof of Work implementation
-│   ├── blockchain-pos.ts         # Proof of Stake implementation
-│   ├── blockchain-liquidity-pool.ts  # Liquidity Pool implementation
-│   ├── models/                   # Shared data models
-│   └── types/                    # TypeScript type definitions
-├── examples/
-│   ├── pow-example.ts           # PoW usage example
-│   ├── pos-example.ts           # PoS usage example
-│   └── liquidity-pool-example.ts # Liquidity Pool usage example
-├── tests/
-│   ├── blockchain-pow.test.ts   # PoW tests
-│   ├── blockchain-pos.test.ts   # PoS tests
-│   └── blockchain-liquidity-pool.test.ts # Liquidity Pool tests
-├── dist/                        # Compiled JavaScript files
-├── package.json                 # Project dependencies and scripts
-├── tsconfig.json               # TypeScript configuration
-├── .mocharc.json              # Mocha test configuration
-└── README.md                  # Project documentation
 ```
 
 ## Implementation Details
