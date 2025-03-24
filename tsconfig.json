@@ -1,19 +1,19 @@
 {
     "compilerOptions": {
-        "target": "ES2022",
-        "module": "ESNext",
+        "target": "ES2020",
+        "module": "CommonJS",
         "moduleResolution": "node",
-        "outDir": "./dist",
         "esModuleInterop": true,
-        "skipLibCheck": true,
         "strict": true,
-        "useDefineForClassFields": true,
+        "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
-        "allowSyntheticDefaultImports": true,
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "lib": ["ES2022", "DOM"]
+        "outDir": "./dist",
+        "rootDir": ".",
+        "baseUrl": ".",
+        "paths": {
+            "*": ["node_modules/*"]
+        }
     },
-    "include": ["./**/*.ts"],
+    "include": ["src/**/*", "examples/**/*", "tests/**/*"],
     "exclude": ["node_modules"]
 }

@@ -1,23 +1,40 @@
 {
     "name": "blockchain",
     "version": "1.0.0",
-    "description": "That's a simple blockchain and cryptocurrency wallet implemented in Node.js and TypeScript.",
-    "main": "index.js",
-    "type": "module",
+    "description": "A TypeScript implementation of blockchain concepts including Proof of Work, Proof of Stake, and Liquidity Pools",
+    "main": "dist/index.js",
     "scripts": {
-        "dev": "tsc -w",
         "build": "tsc",
-        "start": "tsc && node .",
-        "test": ""
+        "start": "node dist/index.js",
+        "test": "ts-node --esm node_modules/mocha/bin/mocha.js tests/**/*.test.ts",
+        "lint": "eslint . --ext .ts",
+        "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\"",
+        "example:pow": "npm run build && node dist/examples/pow-example.js",
+        "example:pos": "npm run build && node dist/examples/pos-example.js",
+        "example:liquidity": "npm run build && node dist/examples/liquidity-pool-example.js"
     },
-    "keywords": [],
+    "keywords": [
+        "blockchain",
+        "typescript",
+        "proof-of-work",
+        "proof-of-stake",
+        "liquidity-pool"
+    ],
     "author": "",
     "license": "ISC",
-    "dependencies": {
-        "typescript": "^5.4.2"
-    },
     "devDependencies": {
-        "@types/node": "^20.11.27"
+        "@types/chai": "^4.3.11",
+        "@types/mocha": "^10.0.6",
+        "@types/node": "^20.11.19",
+        "@typescript-eslint/eslint-plugin": "^7.0.1",
+        "@typescript-eslint/parser": "^7.0.1",
+        "chai": "^4.3.10",
+        "eslint": "^8.56.0",
+        "mocha": "^10.3.0",
+        "prettier": "^3.2.5",
+        "ts-node": "^10.9.2",
+        "tsconfig-paths": "^4.2.0",
+        "typescript": "^5.3.3"
     },
     "repository": {
         "type": "git",

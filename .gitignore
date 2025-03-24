@@ -49,3 +49,4 @@ yarn.lock
 
 # ignore the index.js
 index.js
+.qodo

@@ -1,37 +1,157 @@
-# Blockchain
+# Blockchain Implementation Examples
 
-That's a simple blockchain and cryptocurrency wallet implemented in Node.js and TypeScript.
+A collection of blockchain implementations in TypeScript demonstrating different consensus mechanisms and DeFi concepts.
 
-### Usage
+## Features
 
-Clone the project:
-```
-git clone <this-repo>
+- **Proof of Work (PoW) Implementation**
 
+    - Block creation and mining
+    - Transaction handling
+    - Wallet management
+    - Cryptographic security using SHA-256
+
+- **Proof of Stake (PoS) Implementation**
+
+    - Stake-based block validation
+    - Validator selection
+    - Stake management
+    - Energy-efficient consensus
+
+- **Liquidity Pool Implementation**
+    - Automated Market Maker (AMM) functionality
+    - Token swapping
+    - Liquidity provision
+    - Price calculation
+
+## Prerequisites
+
+- Node.js (v14 or higher)
+- npm or yarn
+- TypeScript
+
+## Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/constantimi/blockchain.git
+
+# Install dependencies
 npm install
-npm run start
 ```
-For the developement, compine the code with:
 
-```
+## Usage
+
+### Development
+
+```bash
+# Compile TypeScript files
+npm run build
+
+# Run the application
+npm run start
+
+# Run in development mode with watch
 npm run dev
 ```
 
-You can find more details for this example on the bottom of the index.ts page
+### Testing
 
-### Documentation
+```bash
+# Run all tests
+npm test
 
-- [https://nodejs.org/api/crypto.html](https://nodejs.org/api/crypto.html)
-- [https://docs.npmjs.com/cli/v8/commands/npm-init](https://docs.npmjs.com/cli/v8/commands/npm-init)
+# Run specific test files
+npm test tests/blockchain-pow.test.ts
+npm test tests/blockchain-pos.test.ts
+npm test tests/blockchain-liquidity-pool.test.ts
+```
 
-### Blockchain Explained
+### Code Quality
 
-A blockchain is a distributed database that is shared among the nodes of a computer network. As a database, a blockchain stores information electronically in digital format. Blockchains are best known for their crucial role in cryptocurrency systems, such as Bitcoin, for maintaining a secure and decentralized record of transactions. The innovation with a blockchain is that it guarantees the fidelity and security of a record of data and generates trust without the need for a trusted third party.
+```bash
+# Run linter
+npm run lint
 
-One key difference between a typical database and a blockchain is how the data is structured. A blockchain collects information together in groups, known as blocks, that hold sets of information. Blocks have certain storage capacities and, when filled, are closed and linked to the previously filled block, forming a chain of data known as the blockchain. All new information that follows that freshly added block is compiled into a newly formed block that will then also be added to the chain once filled.
+# Format code
+npm run format
+```
 
-A database usually structures its data into tables, whereas a blockchain, like its name implies, structures its data into chunks (blocks) that are strung together. This data structure inherently makes an irreversible time line of data when implemented in a decentralized nature. When a block is filled, it is set in stone and becomes a part of this time line. Each block in the chain is given an exact time stamp when it is added to the chain.
+### Examples
 
-### Repo Activity
+```bash
+# Run Proof of Work example
+npm run example:pow
 
-![Alt](https://repobeats.axiom.co/api/embed/99f9886a1aa4fbeffd4d0ba91ad125614e45abe1.svg "Repobeats analytics image")
+# Run Proof of Stake example
+npm run example:pos
+
+# Run Liquidity Pool example
+npm run example:liquidity
+```
+
+## Project Structure
+
+```
+├── src/
+│   ├── blockchain-pow.ts         # Proof of Work implementation
+│   ├── blockchain-pos.ts         # Proof of Stake implementation
+│   ├── blockchain-liquidity-pool.ts  # Liquidity Pool implementation
+│   ├── models/                   # Shared data models
+│   └── types/                    # TypeScript type definitions
+├── examples/
+│   ├── pow-example.ts           # PoW usage example
+│   ├── pos-example.ts           # PoS usage example
+│   └── liquidity-pool-example.ts # Liquidity Pool usage example
+├── tests/
+│   ├── blockchain-pow.test.ts   # PoW tests
+│   ├── blockchain-pos.test.ts   # PoS tests
+│   └── blockchain-liquidity-pool.test.ts # Liquidity Pool tests
+├── dist/                        # Compiled JavaScript files
+├── package.json                 # Project dependencies and scripts
+├── tsconfig.json               # TypeScript configuration
+├── .mocharc.json              # Mocha test configuration
+└── README.md                  # Project documentation
+```
+
+## Implementation Details
+
+### Proof of Work (PoW)
+
+- Implements a basic blockchain with PoW consensus
+- Features transaction handling and wallet management
+- Uses SHA-256 for cryptographic security
+- Includes mining mechanism with adjustable difficulty
+
+### Proof of Stake (PoS)
+
+- Demonstrates stake-based consensus mechanism
+- Implements validator selection based on stake
+- Features stake management and rewards
+- More energy-efficient than PoW
+
+### Liquidity Pool
+
+- Implements basic AMM functionality
+- Supports token swapping
+- Includes liquidity provision mechanism
+- Features price calculation based on constant product formula
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request. Before submitting, please:
+
+1. Run the tests: `npm test`
+2. Check code style: `npm run lint`
+3. Format code: `npm run format`
+
+## Resources
+
+- [Node.js Crypto Documentation](https://nodejs.org/api/crypto.html)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
+- [Blockchain Basics](https://www.investopedia.com/terms/b/blockchain.asp)
+- [Consensus Mechanisms](https://academy.binance.com/en/articles/proof-of-work-pow-vs-proof-of-stake-pos)
+
+## Repository Activity
+
+![Alt](https://repobeats.axiom.co/api/embed/99f9886a1aa4fbeffd4d0ba91ad125614e45abe1.svg 'Repobeats analytics image')
