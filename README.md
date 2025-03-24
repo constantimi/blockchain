@@ -1,4 +1,4 @@
-# Blockchain Implementation Examples
+# Blockchain
 
 A collection of blockchain implementations in TypeScript demonstrating different consensus mechanisms and DeFi concepts.
 
