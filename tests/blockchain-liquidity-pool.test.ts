@@ -1,7 +1,8 @@
+import * as crypto from 'crypto';
 import { expect } from 'chai';
 import { describe, it, beforeEach } from 'mocha';
-import { Transaction, Block, Chain, Wallet } from '../src/models/index.js';
-import { Token, LiquidityPool } from '../src/blockchain-liquidity-pool.js';
+import { Transaction, Block, Chain, Wallet } from '../src/models';
+import { Token, LiquidityPool } from '../src/blockchain-liquidity-pool';
 
 describe('Blockchain Liquidity Pool Implementation', () => {
     beforeEach(() => {
@@ -148,8 +149,20 @@ describe('Blockchain Liquidity Pool Implementation', () => {
 
         it('should add new blocks', () => {
             const chain = Chain.getInstance();
-            const transaction = new Transaction(50, 'Alice', 'Bob');
-            chain.addBlock(transaction, 'Alice', Buffer.from('signature'));
+            const wallet = new Wallet();
+            const recipient = new Wallet();
+            const transaction = new Transaction(
+                50,
+                wallet.publicKey,
+                recipient.publicKey
+            );
+
+            // Create a proper signature
+            const sign = crypto.createSign('SHA256');
+            sign.update(transaction.toString()).end();
+            const signature = sign.sign((wallet as any).privateKey);
+
+            chain.addBlock(transaction, wallet.publicKey, signature);
             expect(chain.chainLength).to.equal(2);
             expect(chain.lastBlock.transaction).to.equal(transaction);
         });

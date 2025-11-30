@@ -33,6 +33,7 @@ bower_components
 # OS metadata
 .DS_Store
 Thumbs.db
+*.qodo
 
 # TypeScript build files
 .dist/

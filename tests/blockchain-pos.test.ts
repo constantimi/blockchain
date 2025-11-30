@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { describe, it, beforeEach } from 'mocha';
-import { Transaction, Block, Chain, Wallet } from '../src/models/index.js';
-import { PoSChain, Validator, PoSBlock } from '../src/blockchain-pos.js';
+import { Transaction, Block, Chain, Wallet } from '../src/models';
+import { PoSChain, Validator, PoSBlock } from '../src/blockchain-pos';
 
 describe('Blockchain PoS Implementation', () => {
     beforeEach(() => {

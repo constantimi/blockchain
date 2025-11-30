@@ -113,6 +113,9 @@ function chainValidationExample() {
         console.log(
             `  Timestamp: ${new Date(currentBlock.timestamp).toISOString()}`
         );
+        console.log(
+            `  Links to Previous: ${currentBlock.prevHash === prevBlock.hash}`
+        );
         console.log('---');
     }
 }

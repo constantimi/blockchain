@@ -1,3 +1,4 @@
+import * as crypto from 'crypto';
 import { IChain } from '../types/chain';
 import { IBlock } from '../types/block';
 import { ITransaction } from '../types/transaction';
@@ -54,6 +55,22 @@ export class Chain implements IChain {
         senderPublicKey: string,
         signature: Buffer
     ): void {
+        // Verify that the sender's public key matches the transaction payer
+        if (transaction.payer !== senderPublicKey) {
+            throw new Error(
+                'Transaction payer does not match the provided sender public key'
+            );
+        }
+
+        // Verify the transaction signature
+        const verify = crypto.createVerify('SHA256');
+        verify.update(transaction.toString()).end();
+        const isValid = verify.verify(senderPublicKey, signature as Uint8Array);
+
+        if (!isValid) {
+            throw new Error('Invalid transaction signature');
+        }
+
         const newBlock = new Block(this.lastBlock.hash, transaction);
         this.chain.push(newBlock);
     }

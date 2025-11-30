@@ -35,6 +35,7 @@ export class PoWChain extends Chain {
             this.lastBlock.hash,
             new Transaction(50, 'genesis', 'satoshi')
         );
+        block.nonce = nonce;
         block.mine(this.difficulty);
 
         console.log('Block mined!');
